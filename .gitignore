@@ -1,0 +1,34 @@
+# General backup/log/swap files
+*~
+*.DS_Store
+*.bak
+*.log
+*.out
+*.so
+*.swp
+
+# Composer
+/composer.lock
+
+# Environment
+.env
+.env*.local
+
+# Node.js
+/node_modules/
+
+# PHP_CodeSniffer
+/phpcs.xml
+/report-*.txt
+
+# PhpStorm
+.idea/
+
+# Webpack
+/asset-manifest.json
+
+# Built and generated files
+# /build/
+
+# Git
+!.gitkeep
