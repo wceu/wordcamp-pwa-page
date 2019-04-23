@@ -9,6 +9,7 @@
 
 # Composer
 /composer.lock
+vendor
 
 # Environment
 .env

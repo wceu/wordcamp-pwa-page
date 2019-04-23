@@ -2,9 +2,9 @@
 /**
  * The class responsible for registering and tracking custom page templates.
  *
- * @since	  1.0.0
+ * @since 1.0.0
  *
- * @package	wordcamp-pwap
+ * @package    wordcamp-pwap
  * @subpackage wordcamp-pwap/includes
  */
 
@@ -51,7 +51,7 @@ class Templates {
 		}
 
 		// Since we've updated the cache, we need to delete the old cache
-		wp_cache_delete( $cache_key , 'themes');
+		wp_cache_delete( $cache_key, 'themes' );
 
 		// Now add our template to the list of templates by merging our templates
 		// with the existing templates array from the cache.
@@ -82,7 +82,7 @@ class Templates {
 		$file = plugin_dir_path( __DIR__ ) . 'templates/' . get_post_meta( $post->ID, '_wp_page_template', true );
 
 		// Just to be safe, we check if the file exist first
-		if( file_exists( $file ) ) {
+		if ( file_exists( $file ) ) {
 			return $file;
 		}
 
