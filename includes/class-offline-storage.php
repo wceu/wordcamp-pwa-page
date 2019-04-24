@@ -15,6 +15,9 @@ namespace WCEU\WCPWAP\Includes;
  */
 class OfflineStorage {
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 
 	}

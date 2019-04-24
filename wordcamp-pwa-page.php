@@ -28,7 +28,7 @@ define( 'WCPWA_VERSION', '1.0.0' );
 /**
  * The core plugin classes.
  */
-require "vendor/autoload.php";
+require 'vendor/autoload.php';
 
 /**
  * Begins execution of the plugin.
