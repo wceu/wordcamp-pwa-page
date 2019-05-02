@@ -12,6 +12,7 @@ namespace WordCamp\PWAPage\Templates;
 
 add_filter( 'theme_page_templates', __NAMESPACE__ . '\add_new_template' );
 add_filter( 'template_include',     __NAMESPACE__ . '\view_project_template' );
+add_action( 'wp_enqueue_scripts',   __NAMESPACE__ . '\enqueue_assets' );
 
 /**
  * Adds template to the attributes metabox.
@@ -33,11 +34,7 @@ function view_project_template( $template ) {
 
 	global $post;
 
-	if ( ! isset( $post ) ) {
-		return $template;
-	}
-
-	if ( 'template-pwa-home.php' !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
+	if ( ! is_current_page_using_template( 'template-pwa-home.php' ) ) {
 		return $template;
 	}
 
@@ -49,4 +46,27 @@ function view_project_template( $template ) {
 	}
 
 	return $template;
+}
+
+/**
+ * Enqueues CSS and JS assets for our page template.
+ */
+function enqueue_assets() {
+	if ( is_current_page_using_template( 'template-pwa-home.php' ) ) {
+		wp_enqueue_script( 'wordcamp-pwa-page', plugins_url( '/templates/assets/pwa-page.js', __DIR__ ), [], WCPWAP_VERSION, true );
+		wp_enqueue_style( 'wordcamp-pwa-page', plugins_url( '/templates/assets/pwa-page.css', __DIR__ ), [], WCPWAP_VERSION );
+	}
+}
+
+/**
+ * Helper function to determine whether the current page is using our template.
+ */
+function is_current_page_using_template( $template_file ) {
+	global $post;
+
+	if ( ! isset( $post ) ) {
+		return false;
+	}
+
+	return ( get_post_meta( $post->ID, '_wp_page_template', true ) === $template_file );
 }
