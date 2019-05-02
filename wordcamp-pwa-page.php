@@ -28,7 +28,8 @@ define( 'WCPWA_VERSION', '1.0.0' );
 /**
  * The core plugin classes.
  */
-require 'vendor/autoload.php';
+require_once( __DIR__ . '/includes/class-offline-storage.php' );
+require_once( __DIR__ . '/includes/class-page-templates.php' );
 
 /**
  * Begins execution of the plugin.

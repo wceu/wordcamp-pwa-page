@@ -4,11 +4,6 @@
 	"license": "GPL-2.0-or-later",
 	"description": "WordCamp PWA Page",
 	"homepage": "https://github.com/wceu/wordcamp-pwa-page",
-	"autoload": {
-		"psr-4": {
-			"WCEU\\WCPWAP\\Includes\\":"includes/"
-		}
-	},
 	"require": {
 		"composer/installers": "~1.2"
 	},
