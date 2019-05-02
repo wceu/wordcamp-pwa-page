@@ -2,7 +2,7 @@
 /**
  * Mobile friendly, app-style template with timely schedule information to use as a front page with PWA features during a WordCamp.
  *
- * @package    wordcamp-pwap
+ * @package	wordcamp-pwap
  * @subpackage wordcamp-pwap/templates
  */
 

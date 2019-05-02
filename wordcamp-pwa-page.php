@@ -33,10 +33,13 @@ require 'vendor/autoload.php';
 /**
  * Begins execution of the plugin.
  *
- * @since    0.1.0
+ * @since    1.0.0
  */
 function run() {
-	$plugin = new \WCEU\WCPWAP\Includes\Wcpwap();
-	$plugin->init();
+	$template = new Includes\Templates();
+	$template->init();
+
+	$storage = new Includes\OfflineStorage();
+	$storage->configure();
 }
-add_action( 'plugins_loaded', '\WCEU\WCPWAP\run' );
+add_action( 'init', '\WCEU\WCPWAP\run' );

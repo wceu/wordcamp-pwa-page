@@ -32,6 +32,20 @@ class Templates {
 	}
 
 	/**
+	 * Adds filters.
+	 */
+	public function init() {
+
+		// Adds a filter to the attributes metabox to inject template.
+		add_filter( 'theme_page_templates', [ $this, 'add_new_template' ] );
+
+		// Adds a filter to the template include to determine if the page has our
+		// template assigned and return it's path.
+		add_filter( 'template_include', [ $this, 'view_project_template' ] );
+
+	}
+
+	/**
 	 * Adds template to the attributes metabox.
 	 */
 	public function add_new_template( $posts_templates ) {
