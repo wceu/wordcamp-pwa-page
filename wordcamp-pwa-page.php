@@ -19,7 +19,7 @@
  * Domain Path:       /languages
  */
 
-namespace WCEU\WCPWAP;
+namespace WordCamp\PWAPage;
 
 defined( 'ABSPATH' ) || wp_die();
 
@@ -37,10 +37,10 @@ require_once( __DIR__ . '/includes/class-page-templates.php' );
  * @since    1.0.0
  */
 function run() {
-	$template = new Includes\Templates();
+	$template = new Templates();
 	$template->init();
 
-	$storage = new Includes\OfflineStorage();
+	$storage = new OfflineStorage();
 	$storage->configure();
 }
-add_action( 'init', '\WCEU\WCPWAP\run' );
+add_action( 'init', '\WordCamp\PWAPage\run' );

@@ -8,7 +8,7 @@
  * @subpackage wordcamp-pwap/includes
  */
 
-namespace WCEU\WCPWAP\Includes;
+namespace WordCamp\PWAPage;
 
 /**
  * The class responsible for configuring offline storage.
