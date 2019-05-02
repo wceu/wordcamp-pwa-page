@@ -23,24 +23,7 @@ namespace WordCamp\PWAPage;
 
 defined( 'ABSPATH' ) || wp_die();
 
-define( 'WCPWA_VERSION', '1.0.0' );
+define( 'WCPWAP_VERSION', '1.0.0' );
 
-/**
- * The core plugin classes.
- */
-require_once( __DIR__ . '/includes/class-offline-storage.php' );
-require_once( __DIR__ . '/includes/class-page-templates.php' );
-
-/**
- * Begins execution of the plugin.
- *
- * @since    1.0.0
- */
-function run() {
-	$template = new Templates();
-	$template->init();
-
-	$storage = new OfflineStorage();
-	$storage->configure();
-}
-add_action( 'init', '\WordCamp\PWAPage\run' );
+require_once( __DIR__ . '/includes/offline-storage.php' );
+require_once( __DIR__ . '/includes/page-templates.php' );

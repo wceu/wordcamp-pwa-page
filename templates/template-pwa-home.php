@@ -6,7 +6,7 @@
  * @subpackage wordcamp-pwap/templates
  */
 
-namespace WordCamp\PWAPage;
+namespace WordCamp\PWAPage\Templates;
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
