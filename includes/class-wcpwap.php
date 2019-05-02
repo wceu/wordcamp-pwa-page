@@ -22,11 +22,8 @@ class Wcpwap {
 
 		$template = new Templates();
 
-		// Adds a filter to the attributes metabox to inject template into the cache.
+		// Adds a filter to the attributes metabox to inject template.
 		add_filter( 'theme_page_templates', [ $template, 'add_new_template' ] );
-
-		// Adds a filter to the save post to inject out template into the page cache.
-		add_filter( 'wp_insert_post_data', [ $template, 'register_project_templates' ] );
 
 		// Adds a filter to the template include to determine if the page has our
 		// template assigned and return it's path.
