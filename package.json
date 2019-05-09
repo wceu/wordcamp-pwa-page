@@ -1,0 +1,26 @@
+{
+	"name": "wordcamp-pwa-page",
+	"version": "1.0.0",
+	"description": "PWA enhancements for WordCamp sites",
+	"repository": {
+	"type": "git",
+		"url": "git+https://github.com/wceu/wordcamp-pwa-page.git"
+	},
+	"keywords": [
+		"pwa",
+		"wceu",
+		"wordcamp"
+	],
+	"author": "wceu",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/wceu/wordcamp-pwa-page/issues"
+	},
+	"homepage": "https://github.com/wceu/wordcamp-pwa-page#readme",
+	"scripts": {
+		"build": "wp-scripts build"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^3.1.0"
+	}
+}

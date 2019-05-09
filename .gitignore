@@ -29,7 +29,7 @@ vendor
 /asset-manifest.json
 
 # Built and generated files
-# /build/
+/dist/
 
 # Git
 !.gitkeep

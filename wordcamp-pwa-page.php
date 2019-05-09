@@ -25,5 +25,5 @@ defined( 'ABSPATH' ) || wp_die();
 
 define( 'WCPWAP_VERSION', '1.0.0' );
 
-require_once( __DIR__ . '/includes/offline-storage.php' );
-require_once( __DIR__ . '/includes/page-templates.php' );
+require_once __DIR__ . '/includes/offline-storage.php';
+require_once __DIR__ . '/includes/page-templates.php';

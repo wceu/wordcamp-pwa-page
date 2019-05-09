@@ -53,7 +53,7 @@ function view_project_template( $template ) {
  */
 function enqueue_assets() {
 	if ( is_current_page_using_template( 'template-pwa-home.php' ) ) {
-		wp_enqueue_script( 'wordcamp-pwa-page', plugins_url( '/templates/assets/pwa-page.js', __DIR__ ), [], WCPWAP_VERSION, true );
+		wp_enqueue_script( 'wordcamp-pwa-page', plugins_url( '/dist/pwa-page.js', __DIR__ ), [], WCPWAP_VERSION, true );
 		wp_enqueue_style( 'wordcamp-pwa-page', plugins_url( '/templates/assets/pwa-page.css', __DIR__ ), [], WCPWAP_VERSION );
 	}
 }
