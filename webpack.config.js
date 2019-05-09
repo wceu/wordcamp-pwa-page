@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-const isProduction = defaultConfig.mode === 'production';
 
 module.exports = [
 
