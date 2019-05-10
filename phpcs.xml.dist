@@ -80,6 +80,9 @@
 
 	<!-- Scan all (php) files in the current folder and subfolders -->
 	<file>.</file>
+	
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
 
 	<rule ref="WordPress-Core">
 		<!-- I don't see anything wrong with this :) -->
