@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "PWA enhancements for WordCamp sites",
 	"repository": {
-	"type": "git",
+		"type": "git",
 		"url": "git+https://github.com/wceu/wordcamp-pwa-page.git"
 	},
 	"keywords": [
