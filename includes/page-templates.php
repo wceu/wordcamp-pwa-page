@@ -10,14 +10,14 @@
 
 namespace WordCamp\PWAPage\Templates;
 
-add_filter( 'theme_page_templates', __NAMESPACE__ . '\add_new_template' );
-add_filter( 'template_include',     __NAMESPACE__ . '\view_project_template' );
-add_action( 'wp_enqueue_scripts',   __NAMESPACE__ . '\enqueue_assets' );
+add_filter( 'theme_page_templates', __NAMESPACE__ . '\\add_new_template' );
+add_filter( 'template_include',     __NAMESPACE__ . '\\view_project_template' );
+add_action( 'wp_enqueue_scripts',   __NAMESPACE__ . '\\enqueue_assets' );
 
 /**
  * Adds template to the attributes metabox.
  */
-function add_new_template( $posts_templates ) {
+function add_new_template( array $posts_templates ) {
 	$posts_templates = array_merge(
 		$posts_templates,
 		[
@@ -30,8 +30,7 @@ function add_new_template( $posts_templates ) {
 /**
  * Determines if the page has our template assigned and return it's path.
  */
-function view_project_template( $template ) {
-
+function view_project_template( string $template ) {
 	global $post;
 
 	if ( ! is_current_page_using_template( 'template-pwa-home.php' ) ) {
@@ -40,8 +39,8 @@ function view_project_template( $template ) {
 
 	$file = WCPWAP_PLUGIN_PATH . '/templates/' . get_post_meta( $post->ID, '_wp_page_template', true );
 
-	// Just to be safe, we check if the file exists first.
-	if ( file_exists( $file ) ) {
+	// Just to be safe, we check if the file exists and is readable first.
+	if ( is_readable( $file ) ) {
 		return $file;
 	}
 
@@ -61,7 +60,7 @@ function enqueue_assets() {
 /**
  * Helper function to determine whether the current page is using our template.
  */
-function is_current_page_using_template( $template_file ) {
+function is_current_page_using_template( string $template_file ) {
 	global $post;
 
 	if ( ! isset( $post ) ) {

@@ -26,7 +26,7 @@ add_filter(
 
 add_filter(
 	'wp_service_worker_navigation_caching_strategy_args',
-	function( $args ) {
+	function( array $args ) {
 		$args['cacheName']                           = 'pages';
 		$args['plugins']['expiration']['maxEntries'] = 50;
 		return $args;
@@ -35,14 +35,14 @@ add_filter(
 
 wp_register_service_worker_caching_route(
 	'/wp-(content|includes)/.*\.(?:png|gif|jpg|jpeg|svg|webp|css|js)(\?.*)?$',
-	array(
+	[
 		'strategy'  => \WP_Service_Worker_Caching_Routes::STRATEGY_CACHE_FIRST,
 		'cacheName' => 'assets',
-		'plugins'   => array(
-			'expiration' => array(
+		'plugins'   => [
+			'expiration' => [
 				'maxEntries'    => 60,
-				'maxAgeSeconds' => 60 * 60 * 24,
-			),
-		),
-	)
+				'maxAgeSeconds' => DAY_IN_SECONDS,
+			],
+		],
+	]
 );
