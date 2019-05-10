@@ -24,6 +24,8 @@ namespace WordCamp\PWAPage;
 defined( 'ABSPATH' ) || wp_die();
 
 define( 'WCPWAP_VERSION', '1.0.0' );
+define( 'WCPWAP_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'WCPWAP_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-require_once __DIR__ . '/includes/offline-storage.php';
-require_once __DIR__ . '/includes/page-templates.php';
+require_once WCPWAP_PLUGIN_PATH . '/includes/offline-storage.php';
+require_once WCPWAP_PLUGIN_PATH . '/includes/page-templates.php';

@@ -10,7 +10,7 @@
 
 namespace WordCamp\PWAPage\PWA;
 
-include_once ABSPATH . 'wp-admin/includes/plugin.php';
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( ! is_plugin_active( 'pwa/pwa.php' ) ) {
 	return;
 }

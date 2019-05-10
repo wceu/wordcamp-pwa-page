@@ -18,7 +18,8 @@
 	},
 	"homepage": "https://github.com/wceu/wordcamp-pwa-page#readme",
 	"scripts": {
-		"build": "wp-scripts build"
+		"build": "wp-scripts build",
+		"start": "wp-scripts start"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^3.1.0"
