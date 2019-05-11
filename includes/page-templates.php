@@ -52,7 +52,7 @@ function view_project_template( string $template ) {
  */
 function enqueue_assets() {
 	if ( is_current_page_using_template( 'template-pwa-home.php' ) ) {
-		wp_enqueue_script( 'wordcamp-pwa-page', WCPWAP_PLUGIN_URL . '/dist/pwa-page.js', [], filemtime( WCPWAP_PLUGIN_PATH . '/dist/pwa-page.js' ), true );
+		wp_enqueue_script( 'wordcamp-pwa-page', WCPWAP_PLUGIN_URL . '/dist/pwa-page.js', [ 'lodash' ], filemtime( WCPWAP_PLUGIN_PATH . '/dist/pwa-page.js' ), true );
 		wp_enqueue_style( 'wordcamp-pwa-page', WCPWAP_PLUGIN_URL . '/templates/assets/pwa-page.css', [], filemtime(  WCPWAP_PLUGIN_PATH . '/templates/assets/pwa-page.css' ) );
 	}
 }
