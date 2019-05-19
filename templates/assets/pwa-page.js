@@ -31,26 +31,88 @@ const processAndRenderData = ( data ) => {
 			next: nextSession,
 		};
 	} );
-
 	render( tracks );
 };
 
-// TODO Properly render tracks and sessions (current code just for debug)
 const render = ( tracks ) => {
-	const element = document.getElementById( 'pwa-page-content' );
 
-	element.innerHTML += '<h1>Current Time: ' + now.toISOString() + '</h1>';
-	element.innerHTML += '<h2>On now</h2>';
-
-	tracks.forEach( ( track ) => {
-		element.innerHTML += '<p>' + track.track.name + ' => (' + track.now.session_date_time.time + ') ' + track.now.title.rendered + '</p>';
-	} );
-
-	element.innerHTML += '<h2>Up next</h2>';
+	const onNow = document.getElementById( 'on-now' );
+	const upNext = document.getElementById( 'up-next' );
 
 	tracks.forEach( ( track ) => {
-		element.innerHTML += '<p>' + track.track.name + ' => (' + track.next.session_date_time.time + ') ' + track.next.title.rendered + '</p>';
+		renderSession( track.now, track.track, onNow );
+		renderSession( track.next, track.track, upNext );
 	} );
+
+};
+
+const renderSession = ( session, track, container ) => {
+
+	const sessionContainer = document.createElement( 'div' );
+	sessionContainer.setAttribute( 'class', 'wordcamp-schedule-session' );
+
+	renderSessionTitle( session, sessionContainer );
+	renderSessionTrack( track, sessionContainer );
+	renderSessionSpeakers( session, sessionContainer );
+	renderSessionCategory( session, sessionContainer );
+
+	container.appendChild( sessionContainer );
+
+};
+
+const renderSessionTitle = ( session, container ) => {
+
+	const title = document.createElement( 'h4' );
+	title.setAttribute( 'class', 'wordcamp-schedule-session-title' );
+
+	const titleLink = document.createElement( 'a' );
+	titleLink.setAttribute( 'href', session.link );
+	titleLink.innerHTML = session.title.rendered;
+
+	title.appendChild( titleLink );
+	container.appendChild( title );
+
+};
+
+const renderSessionTrack = ( track, container ) => {
+	const trackName = document.createElement( 'span' );
+	trackName.setAttribute( 'class', 'wordcamp-schedule-session-track' );
+	trackName.innerHTML = track.name;
+	container.appendChild( trackName );
+};
+
+const renderSessionSpeakers = ( session, container ) => {
+
+	const speakers = document.createElement( 'span' );
+	speakers.setAttribute( 'class', 'wordcamp-schedule-session-speaker' );
+
+	if ( session._embedded.speakers ) {
+		session._embedded.speakers.forEach( ( speaker ) => {
+			const speakerLink = document.createElement( 'a' );
+			speakerLink.setAttribute( 'href', speaker.link );
+			speakerLink.innerHTML = speaker.title.rendered;
+			speakers.appendChild( speakerLink );
+		} );
+	}//end if
+
+	container.appendChild( speakers );
+
+};
+
+const renderSessionCategory = ( session, container ) => {
+
+	const category = document.createElement( 'span' );
+	category.setAttribute( 'class', 'wordcamp-schedule-session-category' );
+
+	const terms = _.keyBy( _.flatten( session._embedded[ 'wp:term' ] ), 'id' );
+	if ( session.session_category.length > 0 ) {
+		const sc = session.session_category[ 0 ];
+		const term = terms[ sc ];
+		category.innerHTML = term.name;
+	}//end if
+
+	container.appendChild( category );
+
 };
 
 const init = () => {

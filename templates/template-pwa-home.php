@@ -19,7 +19,12 @@ namespace WordCamp\PWAPage\Templates;
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="pwa-page-content"></div>
+	<h1><?php echo esc_html_x( 'Live Schedule', 'title', 'wordcamp-pwa-page' ); ?></h1>
+	<h2><?php echo esc_html_x( 'On now', 'title', 'wordcamp-pwa-page' ); ?></h2>
+	<div id="on-now" class="pwa-page-content"></div>
+
+	<h2><?php echo esc_html_x( 'Up next', 'title', 'wordcamp-pwa-page' ); ?></h2>
+	<div id="up-next" class="pwa-page-content"></div>
 <?php wp_footer(); ?>
 </body>
 </html>
