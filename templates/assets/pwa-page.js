@@ -1,7 +1,6 @@
 const _ = require( 'lodash' );
 
-// TODO use localized script data instead of hardcoded URL.
-const apiRoot = 'https://2019.europe.wordcamp.org/wp-json';
+const apiRoot = wcpwa.apiUrl; // eslint-disable-line
 
 // TODO get current date instead of hardcoded one.
 const now = new Date( '2019-06-22T11:35:00Z' );
@@ -195,9 +194,9 @@ const renderPostCategories = ( post, container ) => {
 
 const init = () => {
 	Promise.all( [
-		fetch( apiRoot + '/wp/v2/sessions?status=publish&_embed=true&per_page=100' ).then( ( response ) => response.json() ),
-		fetch( apiRoot + '/wp/v2/session_track?status=publish&per_page=100' ).then( ( response ) => response.json() ),
-		fetch( apiRoot + '/wp/v2/posts?status=publish&_embed=true&per_page=3' ).then( ( response ) => response.json() ),
+		fetch( apiRoot + 'wp/v2/sessions?status=publish&_embed=true&per_page=100' ).then( ( response ) => response.json() ),
+		fetch( apiRoot + 'wp/v2/session_track?status=publish&per_page=100' ).then( ( response ) => response.json() ),
+		fetch( apiRoot + 'wp/v2/posts?status=publish&_embed=true&per_page=3' ).then( ( response ) => response.json() ),
 	] )
 		.then( ( data ) => {
 			processAndRenderScheduleData( {

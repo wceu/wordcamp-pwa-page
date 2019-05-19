@@ -69,6 +69,12 @@ function enqueue_assets() {
 		true
 	);
 
+	wp_localize_script(
+		'wordcamp-pwa-page',
+		'wcpwa',
+		[ 'apiUrl' => 'https://2019.europe.wordcamp.org/wp-json/' ] // TODO use get_rest_url() instead.
+	);
+
 	wp_enqueue_style(
 		'wordcamp-pwa-page',
 		WCPWAP_PLUGIN_URL . '/templates/assets/pwa-page.css',
