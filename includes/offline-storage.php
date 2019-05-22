@@ -10,8 +10,7 @@
 
 namespace WordCamp\PWAPage\PWA;
 
-require_once ABSPATH . 'wp-admin/includes/plugin.php';
-if ( ! is_plugin_active( 'pwa/pwa.php' ) ) {
+if ( ! class_exists( 'WP_Service_Worker_Caching_Routes' ) ) {
 	return;
 }
 
@@ -26,7 +25,7 @@ add_filter(
 
 add_filter(
 	'wp_service_worker_navigation_caching_strategy_args',
-	function( array $args ) {
+	function( $args ) {
 		$args['cacheName']                           = 'pages';
 		$args['plugins']['expiration']['maxEntries'] = 50;
 		return $args;
@@ -40,8 +39,20 @@ wp_register_service_worker_caching_route(
 		'cacheName' => 'assets',
 		'plugins'   => [
 			'expiration' => [
-				'maxEntries'    => 60,
-				'maxAgeSeconds' => DAY_IN_SECONDS,
+				'maxEntries' => 60,
+			],
+		],
+	]
+);
+
+wp_register_service_worker_caching_route(
+	'/wp-json/.*',
+	[
+		'strategy'  => \WP_Service_Worker_Caching_Routes::STRATEGY_NETWORK_FIRST,
+		'cacheName' => 'rest-api',
+		'plugins'   => [
+			'expiration' => [
+				'maxEntries' => 60,
 			],
 		],
 	]
