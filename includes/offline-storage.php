@@ -39,7 +39,8 @@ wp_register_service_worker_caching_route(
 		'cacheName' => 'assets',
 		'plugins'   => [
 			'expiration' => [
-				'maxEntries' => 60,
+				'maxEntries'    => 60,
+				'maxAgeSeconds' => DAY_IN_SECONDS,
 			],
 		],
 	]
@@ -52,7 +53,8 @@ wp_register_service_worker_caching_route(
 		'cacheName' => 'rest-api',
 		'plugins'   => [
 			'expiration' => [
-				'maxEntries' => 60,
+				'maxEntries'    => 60,
+				'maxAgeSeconds' => 15 * MINUTE_IN_SECONDS,
 			],
 		],
 	]

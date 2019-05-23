@@ -28,8 +28,5 @@ vendor
 # Webpack
 /asset-manifest.json
 
-# Built and generated files
-/dist/
-
 # Git
 !.gitkeep

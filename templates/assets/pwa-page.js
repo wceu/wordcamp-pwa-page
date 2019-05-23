@@ -1,9 +1,7 @@
 const _ = require( 'lodash' );
 
 const apiRoot = wcpwa.apiUrl; // eslint-disable-line
-
-// TODO get current date instead of hardcoded one.
-const now = new Date( '2019-06-22T11:35:00Z' );
+const now = new Date();
 
 const processAndRenderScheduleData = ( data ) => {
 
@@ -37,6 +35,9 @@ const renderSchedule = ( tracks ) => {
 
 	const onNow = document.getElementById( 'on-now' );
 	const upNext = document.getElementById( 'up-next' );
+
+	onNow.innerHTML = '';
+	upNext.innerHTML = '';
 
 	tracks.forEach( ( track ) => {
 		renderSession( track.now, track.track, onNow );
@@ -124,6 +125,7 @@ const renderSessionCategory = ( session, container ) => {
 
 const renderLatestPosts = ( posts ) => {
 	const container = document.getElementById( 'latest-posts' );
+	container.innerHTML = '';
 
 	posts.forEach( ( post ) => {
 		renderPost( post, container );
@@ -210,3 +212,4 @@ const init = () => {
 		} );
 };
 init();
+setInterval( init, 60 * 1000 );
