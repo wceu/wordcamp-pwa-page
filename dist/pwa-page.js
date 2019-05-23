@@ -85,6 +85,11 @@ var apiRoot = wcpwa.apiUrl; // eslint-disable-line
 var now = new Date();
 
 var processAndRenderScheduleData = function processAndRenderScheduleData(data) {
+  if (!_.isArray(data.tracks)) {
+    return;
+  } //end if
+
+
   var tracks = data.tracks.map(function (track) {
     var sessionsInTrack = _.sortBy(_.filter(data.sessions, function (session) {
       return session.session_track.includes(track.id);
@@ -188,6 +193,7 @@ var renderSessionCategory = function renderSessionCategory(session, container) {
 
 var renderLatestPosts = function renderLatestPosts(posts) {
   var container = document.getElementById('latest-posts');
+  container.innerHTML = '';
   posts.forEach(function (post) {
     renderPost(post, container);
   });
@@ -248,7 +254,6 @@ var renderPostCategories = function renderPostCategories(post, container) {
 };
 
 var init = function init() {
-  console.log('Calling @', new Date().toLocaleTimeString());
   Promise.all([fetch(apiRoot + 'wp/v2/sessions?status=publish&_embed=true&per_page=100').then(function (response) {
     return response.json();
   }), fetch(apiRoot + 'wp/v2/session_track?status=publish&per_page=100').then(function (response) {

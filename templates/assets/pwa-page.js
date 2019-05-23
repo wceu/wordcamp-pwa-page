@@ -5,6 +5,10 @@ const now = new Date();
 
 const processAndRenderScheduleData = ( data ) => {
 
+	if ( ! _.isArray( data.tracks ) ) {
+		return;
+	}//end if
+
 	const tracks = data.tracks.map( ( track ) => {
 		const sessionsInTrack = _.sortBy(
 			_.filter(
