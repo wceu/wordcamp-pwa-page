@@ -64,15 +64,11 @@ function enqueue_assets() {
 	wp_enqueue_script(
 		'wordcamp-pwa-page',
 		WCPWAP_PLUGIN_URL . '/dist/pwa-page.js',
-		[ 'lodash' ],
+		file_exists( WCPWAP_PLUGIN_PATH . '/dist/pwa-page.deps.json' ) ?
+			json_decode( file_get_contents(  WCPWAP_PLUGIN_PATH . '/dist/pwa-page.deps.json' ) ) : // phpcs:ignore
+			[],
 		filemtime( WCPWAP_PLUGIN_PATH . '/dist/pwa-page.js' ),
 		true
-	);
-
-	wp_localize_script(
-		'wordcamp-pwa-page',
-		'wcpwa',
-		[ 'apiUrl' => get_rest_url() ]
 	);
 
 	wp_enqueue_style(

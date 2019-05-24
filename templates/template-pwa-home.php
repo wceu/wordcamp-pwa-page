@@ -21,10 +21,7 @@ namespace WordCamp\PWAPage\Templates;
 <?php wp_body_open(); ?>
 	<h1><?php echo esc_html_x( 'Live Schedule', 'title', 'wordcamp-pwa-page' ); ?></h1>
 
-	<h2><?php echo esc_html_x( 'On now', 'title', 'wordcamp-pwa-page' ); ?></h2>
 	<div id="on-now" class="pwa-page-content"></div>
-
-	<h2><?php echo esc_html_x( 'Up next', 'title', 'wordcamp-pwa-page' ); ?></h2>
 	<div id="up-next" class="pwa-page-content"></div>
 
 	<a href="<?php echo esc_url( site_url( __( 'schedule', 'wordcamp-pwa-page' ) ) ); ?>" class="full-schedule">

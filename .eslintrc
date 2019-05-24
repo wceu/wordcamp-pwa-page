@@ -11,7 +11,8 @@
 	},
 	"globals": {
 		"window": true,
-		"document": true
+		"document": true,
+		"wp": true
 	},
 	"settings": {
 		"react": {
