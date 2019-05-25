@@ -6,6 +6,7 @@ import { addQueryArgs } from '@wordpress/url';
 
 const apiRoot = 'https://2019.europe.wordcamp.org/wp-json/';
 
+// @TODO: Remove development conditions and use of fetch during merge to core.
 const isDevelopment = ! process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 function fetchData( path ) {

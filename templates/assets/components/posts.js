@@ -1,28 +1,22 @@
 /**
  * WordPress dependencies
  */
-import { Component } from '@wordpress/element';
+import { Fragment } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
 import { Post } from './post';
 
-export class LatestPosts extends Component {
+export const LatestPosts = ( { posts } ) => (
 
-	render() {
-		const { posts } = this.props;
+	<Fragment>
+		{ posts.map( ( post, index ) => {
 
-		return (
-			<>
-				{ posts.map( ( post, index ) => {
+			return (
+				<Post key={ index } post={ post } />
+			);
+		} ) }
+	</Fragment>
 
-					return (
-						<Post key={ index } post={ post } />
-					);
-				} ) }
-			</>
-		);
-	}
-
-}
+);

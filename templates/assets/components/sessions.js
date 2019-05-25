@@ -1,32 +1,23 @@
 /**
  * WordPress dependencies
  */
-import { Component } from '@wordpress/element';
+import { Fragment } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
 import { Session } from './session';
 
-export class SessionsGroup extends Component {
+export const SessionsGroup = ( { title, sessions } ) => (
 
-	render() {
-		const {
-			title,
-			sessions,
-		} = this.props;
+	<Fragment>
+		<h2>{ title }</h2>
+		{ sessions.map( ( session, index ) => {
 
-		return (
-			<>
-				<h2>{ title }</h2>
-				{ sessions.map( ( session, index ) => {
+			return (
+				<Session key={ index } session={ session } />
+			);
+		} ) }
+	</Fragment>
 
-					return (
-						<Session key={ index } session={ session } />
-					);
-				} ) }
-			</>
-		);
-	}
-
-}
+);
