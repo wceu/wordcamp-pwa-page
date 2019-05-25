@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { sortBy, isArray } from 'lodash';
+import { sortBy } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -20,7 +20,7 @@ const now = new Date();
 
 const processAndRenderScheduleData = ( data ) => {
 
-	if ( ! isArray( data.tracks ) ) {
+	if ( ! Array.isArray( data.tracks ) ) {
 		return;
 	}//end if
 
