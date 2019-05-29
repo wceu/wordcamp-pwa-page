@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { apiFetch } from '@wordpress/api-fetch';
+import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
 
 const apiRoot = 'https://2019.europe.wordcamp.org/wp-json/';
