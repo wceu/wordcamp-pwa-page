@@ -376,10 +376,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var now = new Date();
 
 var processAndRenderScheduleData = function processAndRenderScheduleData(data) {
-  if (!Object(lodash__WEBPACK_IMPORTED_MODULE_1__["isArray"])(data.tracks)) {
+  var now = window.now || new Date();
+  console.log('Date', now);
+
+  if (!Array.isArray(data.tracks)) {
     return;
   } //end if
 
@@ -457,7 +459,12 @@ var init = function init() {
 };
 
 init();
-setInterval(init, 60 * 1000);
+setInterval(init, 60 * 1000); // TODO delete this function. Only for testing purposes.
+
+window.setDate = function (d) {
+  window.now = d;
+  init();
+};
 
 /***/ }),
 

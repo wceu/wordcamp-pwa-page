@@ -16,9 +16,10 @@ import { fetchSessions, fetchTracks, fetchPosts } from './api';
 import { LatestPosts } from './components/posts';
 import { SessionsGroup } from './components/sessions';
 
-const now = new Date();
-
 const processAndRenderScheduleData = ( data ) => {
+
+	const now = window.now || new Date();
+	console.log( 'Date', now );
 
 	if ( ! Array.isArray( data.tracks ) ) {
 		return;
@@ -99,3 +100,9 @@ const init = () => {
 };
 init();
 setInterval( init, 60 * 1000 );
+
+// TODO delete this function. Only for testing purposes.
+window.setDate = function( d ) {
+	window.now = d;
+	init();
+};
