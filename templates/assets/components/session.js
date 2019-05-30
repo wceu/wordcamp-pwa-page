@@ -24,6 +24,9 @@ export const Session = ( { session } ) => {
 				'wp:term': embeddedTerms,
 				speakers = [],
 			},
+			meta: {
+				_wcpt_session_type: sessionType = '',
+			},
 		},
 		track: {
 			name: trackName,
@@ -39,7 +42,7 @@ export const Session = ( { session } ) => {
 	}//end if
 
 	return (
-		<div className="wordcamp-schedule-session">
+		<div className={ `wordcamp-schedule-session ${ sessionType }` }>
 			<span className="wordcamp-schedule-session-track">{ trackName }</span>
 			<h4 className="wordcamp-schedule-session-title">
 				<a href={ link }>{ stripTagsAndEncodeText( title ) }</a>

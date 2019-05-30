@@ -19,7 +19,6 @@ import { SessionsGroup } from './components/sessions';
 const processAndRenderScheduleData = ( data ) => {
 
 	const now = window.now || new Date();
-	console.log( 'Date', now );
 
 	if ( ! Array.isArray( data.tracks ) ) {
 		return;
