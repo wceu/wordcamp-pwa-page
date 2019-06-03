@@ -117,7 +117,7 @@
 
 /** LAYOUT **/
 .pwa-site-main {
-    max-width: 30rem;
+    max-width: 60rem;
     margin: 0 auto;
 }
 
@@ -153,24 +153,24 @@
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-track {
-    flex: 25%;
+    flex: 28%;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-title {
-    flex: 75%;
+    flex: 72%;
     text-transform: none;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-time {
     position: absolute;
     top: 0;
-    left: 25%;
+    left: 28%;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-speaker {
     position: absolute;
     bottom: 0;
-    left: 25%;
+    left: 28%;
     width: 50%;
 
 }
