@@ -331,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 var SessionsGroup = function SessionsGroup(_ref) {
   var title = _ref.title,
       sessions = _ref.sessions;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, title), sessions.map(function (session, index) {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null, title), sessions.map(function (session, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_session__WEBPACK_IMPORTED_MODULE_1__["Session"], {
       key: index,
       session: session
