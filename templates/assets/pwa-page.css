@@ -1,60 +1,92 @@
-/** STYLES **/
+/***********************************************************************************************************************
+************************************************************************************************************************
+
+                                                        STYLES
+
+************************************************************************************************************************
+***********************************************************************************************************************/
+
+.pwa-footer-area,
+.pwa-header-area {
+    background: #0094a8;
+}
+
+.pwa-header-wrapper .site-title {
+    font-size: 1.5rem;
+}
+.pwa-header-wrapper .site-description {
+    font-size: 1rem;
+}
+
+.pwa-site-main h1,
+.pwa-site-main h2 {
+    font-size: 2rem;
+}
+
+.pwa-page-content {
+    border: 1px solid #e8f5f6;
+}
+
 .pwa-page-content h3 {
     background: #0094a8;
     color: #fff;
+    border-bottom: 1px solid #e8f5f6;
+    text-transform: uppercase;
+    text-align: center;
     font-size: 1.5rem;
     font-weight: 500;
-    margin: 0;
-    padding: 0.75rem;
+}
+
+.wordcamp-schedule-session {
+    border-bottom: 1px solid #e8f5f6;
+}
+
+.wordcamp-schedule-session.custom {
+    background: #e8f5f6;
+}
+
+.wordcamp-schedule-session.session .wordcamp-schedule-session-title {
+    text-transform: none;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-track {
     background: #db0577;
     color: #fff;
-    font-size: 0.75rem;
-    padding: 0 0.5rem;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.wordcamp-schedule-session .wordcamp-schedule-session-title {
-    padding: 0 0.25rem;
-    margin: 1.5rem 0 2rem 0;
-}
-
-.wordcamp-schedule-session .wordcamp-schedule-session-speaker {
-    padding: 0 0.25rem;
+.wordcamp-schedule-session .wordcamp-schedule-session-track.workshop-1,
+.wordcamp-schedule-session .wordcamp-schedule-session-track.workshop-2,
+.wordcamp-schedule-session .wordcamp-schedule-session-track.workshop-3 {
+    background: #c0bc1b;
+    color: #000;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-speaker a {
+    color: #000;
     font-size: 1rem;
     font-weight: 700;
-    color: #000;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-category {
-    font-size: 0.85rem;
-    text-align: right;
-    padding: 0 0.25rem;
-    font-weight: 700;
     color: #000;
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
 .wordcamp-latest-post .wordcamp-latest-post-date,
 .wordcamp-schedule-session .wordcamp-schedule-session-time {
-    font-size: 0.8rem;
-    padding: 0 0.25rem;
-    font-weight: bold;
     color: #333;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 .full-schedule,
 .all-posts {
     background: #db0577;
     color: #fff;
-    text-align: center;
     text-transform: uppercase;
-    padding: 0.75rem;
     font-weight: 500;
 }
 
@@ -76,30 +108,21 @@
 
 .wordcamp-latest-post {
     background: #e8f5f6;
-    padding: 0.25rem 0.5rem;
 }
 
 .wordcamp-latest-post .wordcamp-latest-post-title {
-    padding: 0;
-    margin: 1.5rem 0 0.5rem 0;
     text-transform: none;
-}
-
-.wordcamp-latest-post .wordcamp-latest-post-date {
-    padding-left: 0.5rem;
 }
 
 .wordcamp-latest-post .wordcamp-latest-post-excerpt {
     font-size: 1rem;
-    padding: 0.25rem;
-    display: block;
     line-height: 1.2rem;
 }
 
 .wordcamp-latest-post .wordcamp-latest-post-categories a {
-    font-size: 0.8rem;
     color: #111;
     text-transform: uppercase;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 
@@ -115,37 +138,69 @@
     text-decoration: underline;
 }
 
-/** LAYOUT **/
+/***********************************************************************************************************************
+************************************************************************************************************************
+
+                                                        LAYOUT
+
+************************************************************************************************************************
+***********************************************************************************************************************/
+.pwa-header-wrapper
+.pwa-footer-wrapper,
 .pwa-site-main {
     max-width: 60rem;
     margin: 0 auto;
+    position: relative;
+}
+
+.pwa-header-area {
+    margin-bottom: 1rem;
+}
+
+.pwa-header-wrapper {
+    padding: 1rem 0;
+}
+
+.pwa-header-wrapper .site-title,
+.pwa-header-wrapper .site-description {
+    display: block;
+    text-align: right;
+    margin: 0;
+    padding: 0 0.5rem 0 0;
+}
+
+.pwa-header-wrapper .site-title a[rel=home]:before {
+    height: 4.5rem;
+    width: 4.5rem;
+    position: absolute;
+    margin-left: 0.5rem;
+}
+
+.pwa-footer-area {
+    margin-top: 1rem;
+    min-height: 5rem;
 }
 
 .pwa-site-main h1,
 .pwa-site-main h2 {
     text-align: center;
     width: 100%;
-    font-size: 3rem;
 }
-
 
 .pwa-page-content {
     display: block;
     width: 98%;
     margin: 1% 1% 5% 1%;
-    border: 1px solid #e8f5f6;
 }
 
 .pwa-page-content h3 {
-    text-transform: uppercase;
-    text-align: center;
-    border-bottom: 1px solid #e8f5f6;
+    margin: 0;
+    padding: 0.75rem;
 }
 
 .wordcamp-schedule-session {
     position: relative;
     display: flex;
-    border-bottom: 1px solid #e8f5f6;
 }
 
 .wordcamp-schedule-session:last-child {
@@ -154,17 +209,21 @@
 
 .wordcamp-schedule-session .wordcamp-schedule-session-track {
     flex: 28%;
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-title {
     flex: 72%;
-    text-transform: none;
+    padding: 0 0.25rem;
+    margin: 1.5rem 0 2rem 0;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-time {
     position: absolute;
     top: 0;
     left: 28%;
+    padding: 0 0.25rem;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-speaker {
@@ -172,7 +231,7 @@
     bottom: 0;
     left: 28%;
     width: 50%;
-
+    padding: 0 0.25rem;
 }
 
 .wordcamp-schedule-session .wordcamp-schedule-session-category {
@@ -180,24 +239,41 @@
     bottom: 0;
     right: 0;
     width: 25%;
+    text-align: right;
+    padding: 0 0.25rem;
 }
 
 .full-schedule,
 .all-posts {
     width: 100%;
     display: block;
+    text-align: center;
+    padding: 0.75rem;
 }
 
 .wordcamp-latest-post {
     width: 100%;
     margin-bottom: 0.5rem;
     position: relative;
+    padding: 0.25rem 0.5rem;
 }
+
+.wordcamp-latest-post .wordcamp-latest-post-title {
+    padding: 0;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.wordcamp-latest-post .wordcamp-latest-post-excerpt {
+    padding: 0.25rem;
+    display: block;
+}
+
 
 .wordcamp-latest-post .wordcamp-latest-post-date {
     position: absolute;
     top: 0;
     left: 0;
+    padding: 0 0.5rem;
 }
 
 .wordcamp-latest-post .wordcamp-latest-post-categories {

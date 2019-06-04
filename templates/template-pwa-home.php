@@ -8,6 +8,8 @@
 
 namespace WordCamp\PWAPage\Templates;
 
+$description = get_bloginfo( 'description', 'display' );
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -23,6 +25,20 @@ namespace WordCamp\PWAPage\Templates;
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<header id="pwa-header" class="pwa-header-area">
+	<div class="pwa-header-wrapper">
+		<p class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<?php bloginfo( 'name' ); ?>
+			</a>
+		</p>
+		<?php if ( $description || is_customize_preview() ) : ?>
+			<p class="site-description">
+				<?php echo esc_html( $description ); ?>
+			</p>
+		<?php endif; ?>
+	</div>
+</header>
 <div id="pwa-primary" class="pwa-content-area">
 	<main id="pwa-main" class="pwa-site-main" role="pwa-main">
 		<h1><?php echo esc_html_x( 'Live Schedule', 'title', 'wordcamp-pwa-page' ); ?></h1>
@@ -41,6 +57,11 @@ namespace WordCamp\PWAPage\Templates;
 		</a>
 	</main>
 </div>
+<footer class="pwa-footer-area">
+	<div class="pwa-footer-wrapper">
+
+	</div>
+</footer>
 <?php wp_footer(); ?>
 </body>
 </html>
