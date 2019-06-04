@@ -91,6 +91,12 @@
     color: #000;
 }
 
+.wordcamp-schedule-session .wordcamp-schedule-session-track.wellnesswceu,
+.wordcamp-schedule-session .wordcamp-schedule-session-track.wp-cafe {
+    color: #fff;
+    background: #1192a9;
+}
+
 .wordcamp-schedule-session .wordcamp-schedule-session-speaker a {
     color: #000;
     font-size: 1rem;
