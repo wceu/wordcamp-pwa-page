@@ -59,7 +59,11 @@ $description = get_bloginfo( 'description', 'display' );
 </div>
 <footer class="pwa-footer-area">
 	<div class="pwa-footer-wrapper">
-
+		<?php if ( is_active_sidebar( 'pwa-footer' ) ) : ?>
+			<div id="pwa-footer-widget-area" class="chw-widget-area widget-area" role="complementary">
+				<?php dynamic_sidebar( 'pwa-footer' ); ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </footer>
 <?php wp_footer(); ?>

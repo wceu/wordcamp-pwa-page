@@ -14,8 +14,36 @@
 .pwa-header-wrapper .site-title {
     font-size: 1.5rem;
 }
+
 .pwa-header-wrapper .site-description {
     font-size: 1rem;
+}
+
+.pwa-footer-area .widget_text {
+    background: none;
+    color: #fff;
+}
+
+.pwa-footer-area .list-social li {
+    font-size: 0.8rem;
+}
+
+.pwa-footer-area .list-social a,
+.pwa-footer-area .list-social strong {
+    color: #fff;
+}
+
+.pwa-footer-area .list-social a:before {
+    background: none;
+    border: 1px solid #fff;
+}
+
+.pwa-footer-area .list-social a:hover {
+    background: none;
+}
+
+.pwa-footer-area .list-social a:hover:before {
+    background: #db0577;
 }
 
 .pwa-site-main h1,
@@ -181,6 +209,20 @@
     min-height: 5rem;
 }
 
+.pwa-footer-area .widget {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+}
+
+.pwa-footer-area .list-social {
+    display: flex;
+}
+
+.pwa-footer-area .list-social li {
+    flex: 1;
+}
+
 .pwa-site-main h1,
 .pwa-site-main h2 {
     text-align: center;
@@ -279,3 +321,11 @@
 .wordcamp-latest-post .wordcamp-latest-post-categories {
     display: block;
 }
+
+/***********************************************************************************************************************
+************************************************************************************************************************
+
+                                                        MEDIA
+
+************************************************************************************************************************
+***********************************************************************************************************************/
