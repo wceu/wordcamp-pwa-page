@@ -49,7 +49,7 @@ wp_register_service_worker_caching_route(
 wp_register_service_worker_caching_route(
 	'/wp-json/.*',
 	[
-		'strategy'  => \WP_Service_Worker_Caching_Routes::STRATEGY_NETWORK_FIRST,
+		'strategy'  => \WP_Service_Worker_Caching_Routes::STRATEGY_CACHE_FIRST,
 		'cacheName' => 'rest-api',
 		'plugins'   => [
 			'expiration' => [
