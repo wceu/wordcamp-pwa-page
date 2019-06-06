@@ -268,20 +268,23 @@ var Session = function Session(_ref) {
       speakers = _session$session$_emb2 === void 0 ? [] : _session$session$_emb2,
       _session$session$meta = _session$session.meta._wcpt_session_type,
       sessionType = _session$session$meta === void 0 ? '' : _session$session$meta,
-      trackName = session.track.name;
+      _session$track = session.track,
+      trackName = _session$track.name,
+      trackSlug = _session$track.slug;
   var terms = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["keyBy"])(Object(lodash__WEBPACK_IMPORTED_MODULE_1__["flatten"])(embeddedTerms), 'id');
-  var categoryName;
+  var categoryName, categorySlug;
 
   if (sessionCategories.length > 0) {
     var sc = sessionCategories[0];
     categoryName = terms[sc].name;
+    categorySlug = terms[sc].slug;
   } //end if
 
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "wordcamp-schedule-session ".concat(sessionType)
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "wordcamp-schedule-session-track"
+    className: "wordcamp-schedule-session-track ".concat(trackSlug)
   }, trackName), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h4", {
     className: "wordcamp-schedule-session-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
@@ -298,7 +301,7 @@ var Session = function Session(_ref) {
       href: speakerLink
     }, Object(_wordpress_sanitize__WEBPACK_IMPORTED_MODULE_2__["stripTagsAndEncodeText"])(name));
   })), !!categoryName && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "wordcamp-schedule-session-category"
+    className: "wordcamp-schedule-session-category ".concat(categorySlug)
   }, categoryName));
 };
 
@@ -331,7 +334,7 @@ __webpack_require__.r(__webpack_exports__);
 var SessionsGroup = function SessionsGroup(_ref) {
   var title = _ref.title,
       sessions = _ref.sessions;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, title), sessions.map(function (session, index) {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null, title), sessions.map(function (session, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_session__WEBPACK_IMPORTED_MODULE_1__["Session"], {
       key: index,
       session: session

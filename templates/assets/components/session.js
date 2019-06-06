@@ -30,20 +30,22 @@ export const Session = ( { session } ) => {
 		},
 		track: {
 			name: trackName,
+			slug: trackSlug
 		},
 	} = session;
 
 	const terms = keyBy( flatten( embeddedTerms ), 'id' );
-	let categoryName;
+	let categoryName, categorySlug;
 
 	if ( sessionCategories.length > 0 ) {
 		const sc = sessionCategories[ 0 ];
 		categoryName = terms[ sc ].name;
+		categorySlug = terms[ sc ].slug;
 	}//end if
 
 	return (
 		<div className={ `wordcamp-schedule-session ${ sessionType }` }>
-			<span className="wordcamp-schedule-session-track">{ trackName }</span>
+			<span className={ `wordcamp-schedule-session-track ${ trackSlug }` }>{ trackName }</span>
 			<h4 className="wordcamp-schedule-session-title">
 				<a href={ link }>{ stripTagsAndEncodeText( title ) }</a>
 			</h4>
@@ -65,7 +67,7 @@ export const Session = ( { session } ) => {
 				}
 			</span>
 			{ !! categoryName && (
-				<span className="wordcamp-schedule-session-category">{ categoryName }</span>
+				<span className={ `wordcamp-schedule-session-category ${ categorySlug }` }>{ categoryName }</span>
 			) }
 		</div>
 	);

@@ -11,7 +11,7 @@ import { Session } from './session';
 export const SessionsGroup = ( { title, sessions } ) => (
 
 	<Fragment>
-		<h2>{ title }</h2>
+		<h3>{ title }</h3>
 		{ sessions.map( ( session, index ) => {
 
 			return (
