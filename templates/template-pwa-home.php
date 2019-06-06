@@ -38,6 +38,18 @@ $description = get_bloginfo( 'description', 'display' );
 			</p>
 		<?php endif; ?>
 	</div>
+	<div id="masthead">
+		<nav id="site-navigation" class="main-navigation page-navigation-container" role="navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<?php echo esc_html( wp_get_nav_menu_name( 'primary' ) ); ?>
+			</button>
+
+			<?php wp_nav_menu( array(
+				'theme_location' => 'primary',
+				'menu_id'        => 'primary-menu',
+			) ); ?>
+		</nav>
+	</div>
 </header>
 <div id="pwa-primary" class="pwa-content-area">
 	<main id="pwa-main" class="pwa-site-main" role="pwa-main">

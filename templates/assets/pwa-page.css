@@ -204,10 +204,11 @@
 }
 
 .pwa-header-wrapper .site-title a[rel=home]:before {
-    height: 4.5rem;
-    width: 4.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
     position: absolute;
     margin-left: 0.5rem;
+    margin-top: -0.25rem;
 }
 
 .pwa-footer-area {
