@@ -19,7 +19,7 @@ add_filter( 'wp_service_worker_navigation_preload', '__return_false' );
 add_filter(
 	'wp_service_worker_navigation_caching_strategy',
 	function() {
-		return \WP_Service_Worker_Caching_Routes::STRATEGY_STALE_WHILE_REVALIDATE;
+		return \WP_Service_Worker_Caching_Routes::STRATEGY_NETWORK_FIRST;
 	}
 );
 
