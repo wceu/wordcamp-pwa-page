@@ -11,10 +11,10 @@ import { Post } from './post';
 export const LatestPosts = ( { posts } ) => (
 
 	<Fragment>
-		{ posts.map( ( post, index ) => {
+		{ posts.filter( ( post ) => !! post ).map( ( post ) => {
 
 			return (
-				<Post key={ index } post={ post } />
+				<Post key={ post.id } post={ post } />
 			);
 		} ) }
 	</Fragment>

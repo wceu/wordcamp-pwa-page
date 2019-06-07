@@ -30,12 +30,14 @@ export const Session = ( { session } ) => {
 		},
 		track: {
 			name: trackName,
-			slug: trackSlug
+			slug: trackSlug,
 		},
 	} = session;
 
 	const terms = keyBy( flatten( embeddedTerms ), 'id' );
 	let categoryName, categorySlug;
+
+	const validSpeakers = speakers.filter( ( speaker ) => !! speaker.id );
 
 	if ( sessionCategories.length > 0 ) {
 		const sc = sessionCategories[ 0 ];
@@ -52,8 +54,9 @@ export const Session = ( { session } ) => {
 			<span className="wordcamp-schedule-session-time">{ time }</span>
 			<span className="wordcamp-schedule-session-speaker">
 				{
-					!! speakers.length && speakers.map( ( speaker, index ) => {
+					!! validSpeakers.length && validSpeakers.map( ( speaker ) => {
 						const {
+							id,
 							title: {
 								rendered: name,
 							},
@@ -61,7 +64,7 @@ export const Session = ( { session } ) => {
 						} = speaker;
 
 						return (
-							<a key={ index } href={ speakerLink }>{ stripTagsAndEncodeText( name ) }</a>
+							<a key={ id } href={ speakerLink }>{ stripTagsAndEncodeText( name ) }</a>
 						);
 					} )
 				}

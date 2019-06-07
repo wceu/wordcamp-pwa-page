@@ -12,10 +12,10 @@ export const SessionsGroup = ( { title, sessions } ) => (
 
 	<Fragment>
 		<h3>{ title }</h3>
-		{ sessions.map( ( session, index ) => {
+		{ sessions.filter( ( session ) => !! session ).map( ( session ) => {
 
 			return (
-				<Session key={ index } session={ session } />
+				<Session key={ session.id } session={ session } />
 			);
 		} ) }
 	</Fragment>

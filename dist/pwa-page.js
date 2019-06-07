@@ -218,9 +218,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var LatestPosts = function LatestPosts(_ref) {
   var posts = _ref.posts;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, posts.map(function (post, index) {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, posts.filter(function (post) {
+    return !!post;
+  }).map(function (post) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_post__WEBPACK_IMPORTED_MODULE_1__["Post"], {
-      key: index,
+      key: post.id,
       post: post
     });
   }));
@@ -273,6 +275,9 @@ var Session = function Session(_ref) {
       trackSlug = _session$track.slug;
   var terms = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["keyBy"])(Object(lodash__WEBPACK_IMPORTED_MODULE_1__["flatten"])(embeddedTerms), 'id');
   var categoryName, categorySlug;
+  var validSpeakers = speakers.filter(function (speaker) {
+    return !!speaker.id;
+  });
 
   if (sessionCategories.length > 0) {
     var sc = sessionCategories[0];
@@ -293,11 +298,12 @@ var Session = function Session(_ref) {
     className: "wordcamp-schedule-session-time"
   }, time), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "wordcamp-schedule-session-speaker"
-  }, !!speakers.length && speakers.map(function (speaker, index) {
-    var name = speaker.title.rendered,
+  }, !!validSpeakers.length && validSpeakers.map(function (speaker) {
+    var id = speaker.id,
+        name = speaker.title.rendered,
         speakerLink = speaker.link;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
-      key: index,
+      key: id,
       href: speakerLink
     }, Object(_wordpress_sanitize__WEBPACK_IMPORTED_MODULE_2__["stripTagsAndEncodeText"])(name));
   })), !!categoryName && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
@@ -334,9 +340,11 @@ __webpack_require__.r(__webpack_exports__);
 var SessionsGroup = function SessionsGroup(_ref) {
   var title = _ref.title,
       sessions = _ref.sessions;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null, title), sessions.map(function (session, index) {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null, title), sessions.filter(function (session) {
+    return !!session;
+  }).map(function (session) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_session__WEBPACK_IMPORTED_MODULE_1__["Session"], {
-      key: index,
+      key: session.id,
       session: session
     });
   }));
