@@ -30,18 +30,22 @@ define( 'WCPWAP_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 require_once WCPWAP_PLUGIN_PATH . '/includes/offline-storage.php';
 require_once WCPWAP_PLUGIN_PATH . '/includes/page-templates.php';
 
-add_action( 'widgets_init', __NAMESPACE__ . '\footer_widget_init' );
+add_action( 'widgets_init', __NAMESPACE__ . '\pwa_page_sidebars_init' );
 
-function footer_widget_init() {
-	$args = array(
-		'name'          => esc_html__( 'PWA Footer Widget Area', 'wordcamp-pwa-page' ),
-		'id'            => 'pwa-footer',
-		'description'   => esc_html__( 'Will Show a widget area on the footer for PWA template only.', 'wordcamp-pwa-page' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+function pwa_page_sidebars_init() {
+	$sidebar_configs = array(
+		array(
+			'name'          => esc_html__( 'PWA Footer Widget Area', 'wordcamp-pwa-page' ),
+			'id'            => 'pwa-footer',
+			'description'   => esc_html__( 'Will Show a widget area on the footer for PWA template only.', 'wordcamp-pwa-page' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		),
 	);
 
-	register_sidebar( $args );
+	foreach ( $sidebar_configs as $sidebar_config ) {
+		register_sidebar( $sidebar_config );
+	}
 }
