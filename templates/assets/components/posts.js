@@ -7,7 +7,7 @@ import { LoadingIndicator } from './ui/loading';
 export const LatestPosts = ( { list } ) => {
 	const { isFetching, data } = list;
 
-	if ( isFetching ) {
+	if ( isFetching && data.length === 0 ) {
 		return <LoadingIndicator />;
 	}
 

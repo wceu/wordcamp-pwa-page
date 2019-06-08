@@ -46,7 +46,7 @@ const getScheduleData = ( data ) => {
 
 export const Schedule = ( { sessionList, trackList } ) => {
 
-	if ( sessionList.isFetching || trackList.isFetching ) {
+	if ( ( sessionList.isFetching || trackList.isFetching ) && sessionList.data.length === 0 ) {
 		return <LoadingIndicator />;
 	}
 
