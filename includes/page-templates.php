@@ -61,7 +61,7 @@ function enqueue_assets() {
 		return;
 	}
 
-	wp_enqueue_script(
+	wp_register_script(
 		'wordcamp-pwa-page',
 		WCPWAP_PLUGIN_URL . '/dist/pwa-page.js',
 		file_exists( WCPWAP_PLUGIN_PATH . '/dist/pwa-page.deps.json' ) ?
@@ -70,6 +70,15 @@ function enqueue_assets() {
 		filemtime( WCPWAP_PLUGIN_PATH . '/dist/pwa-page.js' ),
 		true
 	);
+
+	wp_localize_script( 'wordcamp-pwa-page', 'WCPWAP', [
+		'urls' => [
+			'schedule' => esc_url( site_url( __( 'schedule', 'wordcamp-pwa-page' ) ) ),
+			'posts' => esc_url( get_post_type_archive_link( 'post' ) ),
+		]
+	] );
+
+	wp_enqueue_script( 'wordcamp-pwa-page' );
 
 	wp_enqueue_style(
 		'wordcamp-pwa-page',
