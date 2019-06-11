@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var apiRoot = 'https://2019.europe.wordcamp.org/wp-json/'; // @TODO: Remove development conditions and use of fetch during merge to core.
 
-var isDevelopment = !"development" || "development" === 'development';
+var isDevelopment = false; //! process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 function fetchData(path) {
   if (isDevelopment) {
@@ -103,7 +103,7 @@ function fetchData(path) {
     });
   }
 
-  return Object(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0__["apiFetch"])({
+  return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
     path: path
   });
 }
@@ -471,7 +471,7 @@ var init = function init() {
 };
 
 init();
-setInterval(init, 60 * 1000); // TODO delete this function. Only for testing purposes.
+setInterval(init, 4000); // TODO delete this function. Only for testing purposes.
 
 window.setDate = function (d) {
   window.now = d;
