@@ -13,6 +13,10 @@ import { LoadingIndicator } from './ui/loading';
 import { sortBy } from 'lodash';
 import { SessionsGroup } from './sessions';
 
+/**
+ * @param {{tracks: [], sessions: []}} data an object with tracks and sessions
+ * @returns {{next: *, now: *, track: T}[]} an array with schedule data
+ */
 const getScheduleData = ( data ) => {
 
 	const now = window.now || new Date();

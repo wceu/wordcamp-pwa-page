@@ -48,6 +48,9 @@ class Page extends Component {
 		}
 	}
 
+	/**
+	 * Loop over the entityLists we defined earlier and set their initial state.
+	 */
 	updateLists() {
 		for ( const listName of Object.keys( entityLists ) ) {
 			entityLists[ listName ]().then( ( data ) => {
