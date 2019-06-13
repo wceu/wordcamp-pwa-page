@@ -36,7 +36,7 @@ export const Post = ( { post } ) => {
 			<span className="wordcamp-latest-post-excerpt">{ stripTagsAndEncodeText( excerpt ) }</span>
 			<span className="wordcamp-latest-post-categories">
 				{
-					categories.length && categories.map( ( c, index ) => {
+					!! categories.length && categories.map( ( c, index ) => {
 						const term = terms[ c ];
 						const {
 							name,
