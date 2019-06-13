@@ -55,23 +55,32 @@ export class Page extends Component {
 		let entityFetcher;
 		for ( const listName of Object.keys( entityLists ) ) {
 			entityFetcher = entityLists[ listName ];
-			entityFetcher().then( ( data ) => {
-				this.setState( { [ listName ]: { isFetching: false, data } } );
-			} ).catch( ( error ) => this.setState( ( state ) => ( {
-				...state,
-				[ listName ]: {
-					...state[ listName ],
-					isFetching: false,
-					error,
-				},
-			} ) ) );
+
+			this.setState( ( state ) => ( {
+				[ listName ]: { ...state[ listName ], isFetching: true },
+			} ) );
+			entityFetcher()
+				.then( ( data ) => {
+					this.setState( { [ listName ]: { isFetching: false, data } } );
+				} )
+				.catch( ( error ) => this.setState( ( state ) => ( {
+					...state,
+					[ listName ]: {
+						...state[ listName ],
+						isFetching: false,
+						error,
+					},
+				} ) ),
+				);
 		}
 	}
 
 	componentDidMount() {
 		this.updateLists();
 
-		this.updateIntervalId = window.setInterval( this.updateLists, UPDATE_INTERVAL );
+		this.updateIntervalId = window.setInterval( () => {
+			this.updateLists();
+		}, UPDATE_INTERVAL );
 	}
 
 	componentWillUnmount() {
