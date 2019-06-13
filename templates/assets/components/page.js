@@ -16,7 +16,7 @@ import { Schedule } from './schedule';
  *
  * @type {number}
  */
-const UPDATE_INTERVAL = 60 * 1000;
+const UPDATE_INTERVAL = 60 * 1000; // Convert to milliseconds.
 
 const entityLists = {
 	sessionList: fetchSessions,
