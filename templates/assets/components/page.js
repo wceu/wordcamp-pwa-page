@@ -52,15 +52,17 @@ export class Page extends Component {
 	 * Loop over the entityLists we defined earlier and set their initial state.
 	 */
 	updateLists() {
+		let entityFetcher;
 		for ( const listName of Object.keys( entityLists ) ) {
-			entityLists[ listName ]().then( ( data ) => {
+			entityFetcher = entityLists[ listName ];
+			entityFetcher().then( ( data ) => {
 				this.setState( { [ listName ]: { isFetching: false, data } } );
-			} ).catch( ( err ) => this.setState( ( state ) => ( {
+			} ).catch( ( error ) => this.setState( ( state ) => ( {
 				...state,
 				[ listName ]: {
 					...state[ listName ],
 					isFetching: false,
-					error: err,
+					error,
 				},
 			} ) ) );
 		}
