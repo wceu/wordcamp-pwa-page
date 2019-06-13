@@ -25,7 +25,7 @@ const getScheduleData = ( data ) => {
 		return;
 	}//end if
 
-	return data.tracks.map( ( track ) => {
+	const scheduleData = data.tracks.map( ( track ) => {
 		const sessionsInTrack = sortBy(
 			data.sessions.filter(
 				( session ) => session.session_track.includes( track.id )
@@ -46,6 +46,8 @@ const getScheduleData = ( data ) => {
 			next: nextSession,
 		};
 	} );
+
+	return scheduleData;
 };
 
 export const Schedule = ( { sessionList, trackList } ) => {
@@ -71,8 +73,12 @@ export const Schedule = ( { sessionList, trackList } ) => {
 	} );
 
 	return <>
-		{ onNowSessions.length ? <SessionsGroup sessions={ onNowSessions } title={ _x( 'On now', 'title', 'wordcamp-pwa-page' ) } /> : '' }
-		{ upNextSessions.length && <SessionsGroup sessions={ upNextSessions } title={ _x( 'Up next', 'title', 'wordcamp-pwa-page' ) } /> }
+		{ onNowSessions.length &&
+			<SessionsGroup sessions={ onNowSessions } title={ _x( 'On now', 'title', 'wordcamp-pwa-page' ) } />
+		}
+		{ upNextSessions.length &&
+			<SessionsGroup sessions={ upNextSessions } title={ _x( 'Up next', 'title', 'wordcamp-pwa-page' ) } />
+		}
 	</>;
 };
 export default Schedule;
