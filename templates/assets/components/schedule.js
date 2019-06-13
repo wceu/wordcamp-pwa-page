@@ -73,10 +73,10 @@ export const Schedule = ( { sessionList, trackList } ) => {
 	} );
 
 	return <>
-		{ onNowSessions.length &&
+		{ !! onNowSessions.length &&
 			<SessionsGroup sessions={ onNowSessions } title={ _x( 'On now', 'title', 'wordcamp-pwa-page' ) } />
 		}
-		{ upNextSessions.length &&
+		{ !! upNextSessions.length &&
 			<SessionsGroup sessions={ upNextSessions } title={ _x( 'Up next', 'title', 'wordcamp-pwa-page' ) } />
 		}
 	</>;

@@ -5,11 +5,15 @@ import { Session } from './session';
 
 export const SessionsGroup = ( { title, sessions } ) => <>
 	<h3>{ title }</h3>
-	{ sessions.filter( ( session ) => !! session ).map( ( session ) =>
-		<Session
-			key={ `${ session.session.id }-${ session.track.id }` }
-			session={ session }
-		/>
-	)
+	{
+		sessions.filter( ( session ) => !! session ).map( ( session, index ) => {
+			const sessionKey = session.session ? session.session.id : index;
+
+			return <Session
+				key={ `${ sessionKey }-${ session.track.id }` }
+				session={ session }
+			/>;
+		}
+		)
 	}
 </>;
