@@ -34,7 +34,7 @@ class Page extends Component {
 		super( props );
 
 		const config = window.WCPWAP || {};
-		this.updateInterval = -1;
+		this.updateIntervalId = -1;
 		this.state = {
 			config: { ...DEFAULT_CONFIG, ...config },
 		};
@@ -66,11 +66,11 @@ class Page extends Component {
 	componentDidMount() {
 		this.updateLists();
 
-		this.updateInterval = window.setInterval( this.updateLists, UPDATE_INTERVAL );
+		this.updateIntervalId = window.setInterval( this.updateLists, UPDATE_INTERVAL );
 	}
 
 	componentWillUnmount() {
-		window.clearInterval( this.updateInterval );
+		window.clearInterval( this.updateIntervalId );
 	}
 
 	render() {
