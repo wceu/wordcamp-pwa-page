@@ -24,13 +24,20 @@ const entityLists = {
 	postList: fetchPosts,
 };
 
+const DEFAULT_CONFIG = {
+	urls: {},
+};
+
 class Page extends Component {
 
 	constructor( props ) {
 		super( props );
 
+		const config = window.WCPWAP || {};
 		this.updateInterval = -1;
-		this.state = {};
+		this.state = {
+			config: { ...DEFAULT_CONFIG, ...config },
+		};
 
 		for ( const listName of Object.keys( entityLists ) ) {
 			this.state[ listName ] = {
@@ -67,13 +74,13 @@ class Page extends Component {
 	}
 
 	render() {
-		const { postList, sessionList, trackList } = this.state;
+		const { postList, sessionList, trackList, config } = this.state;
 
 		return <>
 			<div className="pwa-page-content">
 				<Schedule sessionList={ sessionList } trackList={ trackList } />
 
-				<a href={ window.WCPWAP.urls.schedule } className="full-schedule">
+				<a href={ config.urls.schedule } className="full-schedule">
 					{ _x( 'View Full Schedule', 'text', 'wordcamp-pwa-page' ) }
 				</a>
 			</div>
@@ -82,7 +89,7 @@ class Page extends Component {
 				<h2>{ _x( 'Latest Posts', 'title', 'wordcamp-pwa-page' ) }</h2>
 				<LatestPosts list={ postList } />
 
-				<a href={ window.WCPWAP.urls.posts } className="all-posts">
+				<a href={ config.urls.posts } className="all-posts">
 					{ _x( 'View all Posts', 'title', 'wordcamp-pwa-page' ) }
 				</a>
 			</div>
