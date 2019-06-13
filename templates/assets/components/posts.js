@@ -1,22 +1,22 @@
 /**
- * WordPress dependencies
- */
-import { Fragment } from '@wordpress/element';
-
-/**
  * Internal dependencies
  */
 import { Post } from './post';
+import { LoadingIndicator } from './ui/loading';
 
-export const LatestPosts = ( { posts } ) => (
+export const LatestPosts = ( { list } ) => {
+	const { isFetching, data } = list;
 
-	<Fragment>
-		{ posts.filter( ( post ) => !! post ).map( ( post ) => {
+	if ( isFetching && data.length === 0 ) {
+		return <LoadingIndicator />;
+	}
 
-			return (
-				<Post key={ post.id } post={ post } />
-			);
-		} ) }
-	</Fragment>
-
-);
+	return <>
+		{
+			data.filter( ( post ) => !! post ).map(
+				( post ) => <Post key={ post.id } post={ post } />
+			)
+		}
+	</>;
+};
+export default LatestPosts;

@@ -71,6 +71,23 @@ function enqueue_assets() {
 		true
 	);
 
+	$urls = [
+		'schedule' => esc_url( site_url( __( 'schedule', 'wordcamp-pwa-page' ) ) ),
+		'posts' => esc_url( get_post_type_archive_link( 'post' ) ),
+	];
+
+	$pwa_config = /** @lang JavaScript */
+		<<<SCRIPT
+window.WCPWAP = window.WCPWAP || {};
+
+window.WCPWAP.urls = Object.assign(window.WCPWAP.urls || {}, {
+	schedule: '{$urls['schedule']}',
+	posts: '{$urls['posts']}',
+});
+SCRIPT;
+
+	wp_add_inline_script( 'wordcamp-pwa-page', $pwa_config, 'before' );
+
 	wp_enqueue_style(
 		'wordcamp-pwa-page',
 		WCPWAP_PLUGIN_URL . '/templates/assets/pwa-page.css',

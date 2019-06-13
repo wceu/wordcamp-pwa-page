@@ -7,26 +7,34 @@ import { keyBy, flatten } from 'lodash';
  * WordPress dependencies
  */
 import { stripTagsAndEncodeText } from '@wordpress/sanitize';
+import { _x } from '@wordpress/i18n';
 
 export const Session = ( { session } ) => {
 
 	const {
 		session: {
-			link,
+			link = '#',
 			title: {
-				rendered: title,
+				rendered: title = '',
 			},
 			session_date_time: {
-				time,
+				time = '',
 			},
-			session_category: sessionCategories,
+			session_category: sessionCategories = [],
 			_embedded: {
-				'wp:term': embeddedTerms,
+				'wp:term': embeddedTerms = {},
 				speakers = [],
 			},
 			meta: {
 				_wcpt_session_type: sessionType = '',
 			},
+		} = {
+			link: '#',
+			title: { rendered: _x( 'Track finished', 'session title', 'wordcamp-pwa-page' ) },
+			session_date_time: { time: '' },
+			session_category: [],
+			_embedded: { 'wp:term': {}, speakers: [] },
+			meta: { _wcpt_session_type: '' },
 		},
 		track: {
 			name: trackName,

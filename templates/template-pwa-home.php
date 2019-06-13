@@ -55,18 +55,7 @@ $description = get_bloginfo( 'description', 'display' );
 	<main id="pwa-main" class="pwa-site-main" role="pwa-main">
 		<h1><?php echo esc_html_x( 'Live Schedule', 'title', 'wordcamp-pwa-page' ); ?></h1>
 
-		<div id="on-now" class="pwa-page-content"></div>
-		<div id="up-next" class="pwa-page-content"></div>
-
-		<a href="<?php echo esc_url( site_url( __( 'schedule', 'wordcamp-pwa-page' ) ) ); ?>" class="full-schedule">
-			<?php echo esc_html_x( 'View Full Schedule', 'text', 'wordcamp-pwa-page' ); ?>
-		</a>
-
-		<h2><?php echo esc_html_x( 'Latest Posts', 'title', 'wordcamp-pwa-page' ); ?></h2>
-		<div id="latest-posts" class="pwa-page-content"></div>
-		<a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="all-posts">
-			<?php echo esc_html_x( 'View All Posts', 'text', 'wordcamp-pwa-page' ); ?>
-		</a>
+        <div id="pwa-root"><?php echo _ex( 'Loading...', 'pwa-placeholder', 'wordcamp-pwa-page' ); ?></div>
 	</main>
 </div>
 <footer class="pwa-footer-area">
