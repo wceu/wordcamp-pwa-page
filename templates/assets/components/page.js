@@ -28,7 +28,7 @@ const DEFAULT_CONFIG = {
 	urls: {},
 };
 
-class Page extends Component {
+export class Page extends Component {
 
 	constructor( props ) {
 		super( props );
@@ -100,5 +100,3 @@ class Page extends Component {
 	}
 
 }
-
-export default Page;

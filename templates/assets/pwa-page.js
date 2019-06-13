@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import Page from './components/page';
+import { Page } from './components/page';
 
 /**
  * WordPress dependencies
